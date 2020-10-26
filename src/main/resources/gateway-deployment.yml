@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: story-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: story-gateway
+  template:
+    metadata:
+      labels:
+        app: story-gateway
+    spec:
+      containers:
+        - image: my_story/storygateway
+          name: story-gateway
+          ports:
+            - containerPort: 8080
+              name: story-gateway
